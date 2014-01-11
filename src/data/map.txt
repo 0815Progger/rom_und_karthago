@@ -1,0 +1,8 @@
+Rom;Castiglione
+Rom;Aléria
+Rom;Cagliari
+Rom;Barletta
+Rom;Lipari
+Lipari;Barletta
+Lipari;Palermo
+Palermo;Kathargo
