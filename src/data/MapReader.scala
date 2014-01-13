@@ -14,20 +14,17 @@ class MapReader {
   // zum spaeteren durchiterieren. Allerdings kann wenn schon iteriert wurde nicht mehr zurueck um auf altes elemt zuzugreifen
   var staedteliste: Set[Stadt] = Set()
   // dummy der staedteliste die alle staedte der map enthalten soll. Wird weiter unten gefuellt
-  var stadt3: Stadt = new Stadt("gibtsBaldNichtMehr", dummySpieler)
-  var stadt4: Stadt = new Stadt("gibtsBaldNichtMehr", dummySpieler)
+  var stadt3: Stadt = Dummy.dummytown
+  var stadt4: Stadt = Dummy.dummytown
   // Hilfstaedte die in u.A. in den Hilffkt unten ben werden
-
-  val dummySpieler = new Spieler("dummy")
-  // Erstelle dummySpieler. Dieser Spieler soll alle Staedte zu Beginn besitzten
 
   while (lines2_.hasNext) {
     var zeiger = lines1_.next.split("\\;")
     lines2_.next
     //hier wird durchiteriert
 
-    val stadt1: Stadt = new Stadt(zeiger(0), dummySpieler)
-    val stadt2: Stadt = new Stadt(zeiger(1), dummySpieler)
+    val stadt1: Stadt = new Stadt(zeiger(0), Dummy.dummyspieler)
+    val stadt2: Stadt = new Stadt(zeiger(1), Dummy.dummyspieler)
     println(stadt1 + ";" + stadt2)
     //Das sind die beiden Staedte die eingelesen werden. Daraus wird jeweils eine Stadt
 

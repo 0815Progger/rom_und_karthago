@@ -5,7 +5,20 @@ import scala.swing._
 import swing.event._
 import frameTest_01.RadioButtonDemo
 
-object panelCeptionTest extends SimpleSwingApplication {
+object HauptmenuGUI extends SimpleSwingApplication {
+  
+  var spieler1 = new Spieler("leer")
+  var spieler2 = new Spieler("leer")
+  var dummy = Dummy.dummyspieler
+  
+  
+  //Wer ist dran? Rückgabe des Spieler-Objekt
+  def IstDran():Spieler = {
+    if(SpielGUI.amZug!=true){spieler1}else{spieler2}
+  }
+  
+  //Dumme Hilfsfunktion von wegen Rekursion und so. Pah.
+  
   val panel1 = new FlowPanel {
     contents += new Label("Spieler1, Wähle deine Seite")
   }
@@ -17,11 +30,17 @@ object panelCeptionTest extends SimpleSwingApplication {
       reactions += {
         case ButtonClicked(_) => {
           text = "Rom gewählt"
+
           buttonKar.text = "Karthago"
           panel3.spieler1.visible = true
           panel3.spieler1.text = "Spieler1 = Rom"
+          spieler1.name = "Rom"
           panel3.spieler2.visible = true
           panel3.spieler2.text = "Spieler2 = Karthago"
+          spieler2.name = "Karthago"
+          panel5.start.enabled=true
+
+            
         }
       }
     }
@@ -33,10 +52,17 @@ object panelCeptionTest extends SimpleSwingApplication {
         case ButtonClicked(_) => {
           text = "Karthago gewählt"
           buttonRom.text = "Rom"
+  
+          
           panel3.spieler1.visible = true
-          panel3.spieler1.text = "Spieler1 = Karthago"
+          spieler1.name = "Karthago"
+          panel3.spieler1.text = "Spieler1 = "+spieler1.name
+          
+          
           panel3.spieler2.visible = true
-          panel3.spieler2.text = "Spieler2 = Rom"
+          spieler2.name = "Rom"
+          panel3.spieler2.text = "Spieler2 = "+spieler2.name
+          panel5.start.enabled=true 
         }
       }
     }
@@ -44,6 +70,7 @@ object panelCeptionTest extends SimpleSwingApplication {
     contents += buttonRom
     contents += buttonKar
   }
+  
   val panel3 = new GridPanel(1,2) {
     var spieler1 = new Label {
       text = "dummytext"
@@ -60,7 +87,7 @@ object panelCeptionTest extends SimpleSwingApplication {
   val panel4 = new GridPanel(1,2) {
     hGap = 20
     vGap = 20
-    val loeschen = new Button{
+    var loeschen = new Button{
       text = "Eingabe löschen"
         reactions += {
         	case ButtonClicked(_) => {
@@ -68,19 +95,38 @@ object panelCeptionTest extends SimpleSwingApplication {
         	  panel2.buttonRom.text = "Rom"
         	  panel3.spieler2.visible=false
         	  panel2.buttonKar.text = "Karthago"
+        	  panel5.start.enabled=false
+        	    
+        	  spieler1.name="Eloe"
+        	  spieler2.name="Eloe"
         	}
           
         }
     }
-    val start = new Button{
+        contents += loeschen
+  }
+    
+    val panel5 = new FlowPanel {
+    var start = new Button{
       text = "Spiel starten"
+        enabled=false
         reactions += {
         case ButtonClicked(_) => {
           SpielGUI.top.open
+          //if (Spieler1.name == "Rom") { SpielGUI.amZug = true } else { SpielGUI.amZug = false }
+          if (SpielGUI.amZug != true){
+            SpielGUI.panel1.werIstDranLabel.text = "Spieler1 ("+spieler1.name+") ist dran."; SpielGUI.amZug=false
+            //SpielGUI.amZug=false
+            }
+          else{
+            SpielGUI.panel1.werIstDranLabel.text="Spieler2 ("+spieler2.name+") ist dran."; SpielGUI.amZug=true
+            //SpielGUI.amZug=true
+            }
+          
         }
       }
     }
-    contents += loeschen
+
     contents += start
   }
 
@@ -99,6 +145,7 @@ object panelCeptionTest extends SimpleSwingApplication {
       contents += panel2;
       contents += panel3;
       contents += panel4;
+      contents += panel5;
     }
   }
 }

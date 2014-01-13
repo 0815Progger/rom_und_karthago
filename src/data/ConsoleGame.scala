@@ -7,9 +7,9 @@ object ConsoleGame {
 
   var map = new MapReader
   var mapReader = map.aktuelleStaedteliste
-  var dummy = new Spieler("Dummy")
-  val spieler1: Spieler = new Spieler(seiteWaehlen) //Siehe die oben definierte Methode
-  val spieler2: Spieler = new Spieler(if (spieler1.name == "Rom") { "Karthago" } else { "Rom" }) // S2 ist immer das Gegenteil von S1.
+  var dummy = Dummy.dummyspieler
+  var spieler1: Spieler = new Spieler(seiteWaehlen) //Siehe die oben definierte Methode
+  var spieler2: Spieler = new Spieler(if (spieler1.name == "Rom") { "Karthago" } else { "Rom" }) // S2 ist immer das Gegenteil von S1.
   var amZug: Boolean = _ //true ist Spieler1 am Zug, false ist Spieler2 am Zug.
   if (spieler1.name == "Rom") { amZug = true } else { amZug = false } //Wir definieren: Rom beginnt immer.
   //    var mapReader = new MapReader().readMap("/home/michael/Dropbox/workspace_scala/rom_and_karthago/files/map.txt")
@@ -20,8 +20,8 @@ object ConsoleGame {
   var endgame = false //Raushuepf-Variable fuer die Hauptschleife des Spiels (siehe weiter unten im Text).
   //    var aktuellerZug:String = _
   var dran = if (amZug == true) { spieler1 } else { spieler2 }
-  spieler1.historie.letzterZug = new Stadt("dummytown", dummy) //Initialisierungsproblem: NullPointerException
-  spieler2.historie.letzterZug = new Stadt("dummytown", dummy) //Initialisierungsproblem: NullPointerException
+  //spieler1.historie.letzterZug = new Stadt("dummytown", dummy) //Initialisierungsproblem: NullPointerException
+  //spieler2.historie.letzterZug = new Stadt("dummytown", dummy) //Initialisierungsproblem: NullPointerException
 
   def main(args: Array[String]) {
     //    	seiteWaehlen(); <-- das wird schon bei der def der val spieler1 aufgerufen, siehe oben.

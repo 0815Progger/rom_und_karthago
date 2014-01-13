@@ -3,12 +3,12 @@ package data
 class Historie {
   var leereZuege: Int = 0
 
-  var letzterZug: Stadt = _
+  var letzterZug: Stadt = Dummy.dummytown
   //  var vorletzterZug:Stadt = _
 
   def clear() = {
     this.leereZuege = 0
-    this.letzterZug = new Stadt("dummy", new Spieler("dummy"))
+    this.letzterZug = Dummy.dummytown
     //    this.vorletzterZug=null
   }
 
