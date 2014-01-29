@@ -9,3 +9,5 @@ class AI extends Spieler("AI") {
   //var name = "AI"
   var schwierigkeitsgrad: String = "test"
 }
+
+//Test
