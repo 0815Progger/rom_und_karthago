@@ -1,5 +1,10 @@
 package gui
 
+/*
+ *  Die Klasse hier findet eh keiner :)
+ */
+
+
 import swing._
 import scala.swing._
 import swing.event._
