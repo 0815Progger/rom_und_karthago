@@ -14,6 +14,17 @@ class AI extends Spieler("AI") {
     println("not intelligent yet")
     false
   }
+
+def schreibWas = {
+  println("Das hier ist die total schlaue A.I")
 }
 
 //Test 6
+/*
+ * Das hier ist ein furchtbar wichtiger Kommentar! Trust me, iam an engineer!
+ * Hier endet der furchtbar wichtige Kommentar. TRUST ME!!!
+ */
+}
+//Test
+
+//Wie wärs mit noch einem Kommentar?
