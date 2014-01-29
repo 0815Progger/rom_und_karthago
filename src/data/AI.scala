@@ -15,4 +15,4 @@ class AI extends Spieler("AI") {
   }
 }
 
-//Test
+//Test 6
