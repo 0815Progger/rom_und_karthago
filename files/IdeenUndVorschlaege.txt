@@ -1,0 +1,10 @@
+Ideen und Vorschläge für Rom und Karthago:
+
+* 	Welcher Spieler gerade dran ist über einen weiteren neuen Spieler in der Klasse ConsoleGame / SpielGUI (currentSpieler)
+	Diesen dann jede Runde über eine Methode wechseln lassen.
+*	Den Spielablauf so in die Klasse Spiel verschieben, dass dort nur Methoden verarbeitet werden, keine println etc.
+* 	Gesamtzahl an Zügen implementieren, damit die Historie aussagekräftiger machen.
+* 	Historie auch mal wirklich SCHREIBEN
+* 
+
+LAUF MAL DURCH DEN WALD
