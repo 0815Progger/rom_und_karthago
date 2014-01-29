@@ -2,19 +2,17 @@ package data
 
 class Historie {
   var leereZuege: Int = 0
+  var letzterZug: String = " "
 
-  var letzterZug: Stadt = Dummy.dummytown
-  //  var vorletzterZug:Stadt = _
 
   def clear() = {
     this.leereZuege = 0
-    this.letzterZug = Dummy.dummytown
-    //    this.vorletzterZug=null
+    this.letzterZug = " "
   }
 
-  def wiederholung(spielzug: Stadt): Boolean = {
-    if (spielzug.name == letzterZug.name) { false }
-    else { this.letzterZug = spielzug; true }
+  def istWiederholung(spielzug: String): Boolean = { //trägt außerdem auch den letzten Zug ein!
+    if (spielzug == letzterZug) { true }
+    else { this.letzterZug = spielzug; false }
   }
 
 }
